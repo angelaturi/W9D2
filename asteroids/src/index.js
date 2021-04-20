@@ -7,6 +7,7 @@ const Game = require('./game');
 document.addEventListener('DOMContentLoaded', function() {
     // testing objects
     window.MovingObject = MovingObject;
+    window.Asteroid = Asteroid; 
 
 
 
@@ -20,12 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //testing MovingObject.draw()
 
-    // const pos = {x: 30, y: 30};
-    // const vel = {x: 10, y: 10};
-    // const radius = 30;
-    // const color = "orange";
+    const pos = {x: 30, y: 30};
+    const vel = {x: 10, y: 10};
+    const radius = 30;
+    const color = "orange";
 
-    // const mo = new MovingObject({pos, vel, radius, color})
+    const mo = new MovingObject({pos, vel, radius, color});
+    const ast = new Asteroid({pos: pos});
 
-    // mo.draw(ctx);
+    ast.draw(ctx);
 })
