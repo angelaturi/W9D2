@@ -14,4 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.width = 600;
     canvas.height = 600;
     const ctx = canvas.getContext('2d');
+
+
+
+
+    //testing MovingObject.draw()
+
+    // const pos = {x: 30, y: 30};
+    // const vel = {x: 10, y: 10};
+    // const radius = 30;
+    // const color = "orange";
+
+    // const mo = new MovingObject({pos, vel, radius, color})
+
+    // mo.draw(ctx);
 })

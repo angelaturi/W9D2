@@ -45,7 +45,7 @@ eval("\n\n//# sourceURL=webpack:///./src/game_view.js?");
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\"); \nconst Asteroid = __webpack_require__(/*! ./asteroid */ \"./src/asteroid.js\");\nconst GameView = __webpack_require__(/*! ./game_view */ \"./src/game_view.js\");\nconst Game = __webpack_require__(/*! ./game */ \"./src/game.js\");\n\nwindow.MovingObject = MovingObject; \n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\"); \nconst Asteroid = __webpack_require__(/*! ./asteroid */ \"./src/asteroid.js\");\nconst GameView = __webpack_require__(/*! ./game_view */ \"./src/game_view.js\");\nconst Game = __webpack_require__(/*! ./game */ \"./src/game.js\");\n\n\ndocument.addEventListener('DOMContentLoaded', function() {\n    // testing objects\n    window.MovingObject = MovingObject;\n\n\n\n    const canvas = document.getElementById('game-canvas');\n    canvas.width = 600;\n    canvas.height = 600;\n    const ctx = canvas.getContext('2d');\n\n\n\n\n    //testing MovingObject.draw()\n\n    // const pos = {x: 30, y: 30};\n    // const vel = {x: 10, y: 10};\n    // const radius = 30;\n    // const color = \"orange\";\n\n    // const mo = new MovingObject({pos, vel, radius, color})\n\n    // mo.draw(ctx);\n})\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -55,7 +55,7 @@ eval("const MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/mo
   \******************************/
 /***/ ((module) => {
 
-eval("\n\nfunction MovingObject(options) {\n  this.pos = options.pos;\n  this.vel = options.vel;\n  this.radius = options.radius; \n  this.color = options.color;\n}\n\nconsole.log(\"SOMETHING!!!\")\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
+eval("\n\nfunction MovingObject(options) {\n  this.pos = options.pos; // object with key x,y\n  this.vel = options.vel; // object with key x,y\n  this.radius = options.radius; \n  this.color = options.color;\n}\n\nMovingObject.prototype.draw = function(ctx) {\n  ctx.beginPath();\n  ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI)\n  ctx.fillStyle = this.color;\n  ctx.fill();\n}\n\n\nMovingObject.prototype.move = function() {\n  this.pos.x += this.vel.x; \n  this.pos.y += this.vel.y; \n}\n\n\n\n\n\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
 
 /***/ })
 

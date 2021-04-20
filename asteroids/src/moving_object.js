@@ -15,4 +15,14 @@ MovingObject.prototype.draw = function(ctx) {
 }
 
 
+MovingObject.prototype.move = function() {
+  this.pos.x += this.vel.x; 
+  this.pos.y += this.vel.y; 
+}
+
+
+
+
+
+
 module.exports = MovingObject;
