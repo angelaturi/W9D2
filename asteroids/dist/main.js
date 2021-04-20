@@ -15,7 +15,7 @@
   \*************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("\nconst MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\")\nconst Util = __webpack_require__(/*! ./util */ \"./src/util.js\")\n\nAsteroid.COLOR = 'gray'; \nAsteroid.RADIUS = 25; \n\n\nfunction Asteroid(options) {\n  MovingObject.call(this, options);\n  this.color = Asteroid.COLOR;\n  this.radius = Asteroid.RADIUS;\n  this.vel = Util.randomVec(8); \n}\n\nUtil.inherits(Asteroid, MovingObject);\n\n\nmodule.exports = Asteroid; \n\n//# sourceURL=webpack:///./src/asteroid.js?");
+eval("\nconst MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\")\nconst Util = __webpack_require__(/*! ./util */ \"./src/util.js\")\n\nAsteroid.COLOR = 'gray'; \nAsteroid.RADIUS = 25; \n\nfunction Asteroid(options) {\n  MovingObject.call(this, options);\n  this.color = Asteroid.COLOR;\n  this.radius = Asteroid.RADIUS;\n  this.vel = Util.randomVec(8); \n}\n\nUtil.inherits(Asteroid, MovingObject);\n\n\nmodule.exports = Asteroid; \n\n//# sourceURL=webpack:///./src/asteroid.js?");
 
 /***/ }),
 
