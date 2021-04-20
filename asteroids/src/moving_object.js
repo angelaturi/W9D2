@@ -23,9 +23,16 @@ MovingObject.prototype.move = function() {
   this.pos = this.game.wrap(this.pos);
 }
 
+MovingObject.prototype.isCollidedWith = function (otherObject) {
+  let dist_sq = ((this.pos.x - otherObject.pos.x) ** 2) + ((this.pos.y - otherObject.pos.y) ** 2);
+  const dist = Math.sqrt(dist_sq);
+  return (dist < (this.radius + otherObject.radius));
+}
 
-
-
+MovingObject.prototype.collideWith = function(otherObject) {
+  this.game.remove(otherObject);
+  this.game.remove(this);
+}
 
 
 module.exports = MovingObject;

@@ -4,7 +4,7 @@ const Asteroid = require("./asteroid")
 
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;
-Game.NUM_ASTEROIDS = 7;
+Game.NUM_ASTEROIDS = 4;
 Game.COLOR = "black";
 
 function Game() {
@@ -70,8 +70,24 @@ Game.prototype.wrap = function(pos) {
     return wrapped_pos; 
 }
 
+Game.prototype.checkCollisions = function () {
+    for (let i = 0; i < this.asteroids.length; i++) {
+        for (let j = i + 1; j < this.asteroids.length; j++) {
+            if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
+                alert("COLLISION!");
+            } 
+        }
+    }
+}
 
+Game.prototype.step = function () {
+    this.moveObjects();
+    this.checkCollisions();
+}
 
-
+Game.prototype.remove(asteroid) {
+    const idx = this.asteroids.indexOf(asteroid);
+    this.asteroids.splice(idx, 1);
+}
 
 module.exports = Game; 
