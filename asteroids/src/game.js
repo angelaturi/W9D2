@@ -74,7 +74,7 @@ Game.prototype.checkCollisions = function () {
     for (let i = 0; i < this.asteroids.length; i++) {
         for (let j = i + 1; j < this.asteroids.length; j++) {
             if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
-                alert("COLLISION!");
+                this.asteroids[i].collideWith(this.asteroids[j]);
             } 
         }
     }
