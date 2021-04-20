@@ -29,8 +29,6 @@ GameView.prototype.bindKeyHandlers = function() {
   key('s', function() { ship.power( { x: 0, y: 1} ) });
 }
 
-// key('a', function(){ alert('you pressed a!') });
-
 
 
 module.exports = GameView; 

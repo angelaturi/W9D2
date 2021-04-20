@@ -1,3 +1,4 @@
+const Bullet = require('./bullet');
 const MovingObject = require('./moving_object');
 const Util = require('./util');
 
@@ -23,6 +24,13 @@ Ship.prototype.relocate = function() {
 Ship.prototype.power = function(impulse) {
   this.vel.x += impulse.x;
   this.vel.y += impulse.y;
+}
+
+
+Ship.prototype.fireBullet = function() {
+  // construct bullet instance
+  const bullet = new Bullet({pos: this.pos, color: this.color, vel: this.vel}); 
+
 }
 
 
