@@ -12,22 +12,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     const canvas = document.getElementById('game-canvas');
-    canvas.width = 600;
+    canvas.width = 1000;
     canvas.height = 600;
     const ctx = canvas.getContext('2d');
 
+    const game = new Game(); 
+    const game_view = new GameView(ctx, game);
+
+    game_view.start(); 
 
 
 
     //testing MovingObject.draw()
 
-    const pos = {x: 30, y: 30};
-    const vel = {x: 10, y: 10};
-    const radius = 30;
-    const color = "orange";
+    // const pos = {x: 30, y: 30};
+    // const vel = {x: 10, y: 10};
+    // const radius = 30;
+    // const color = "orange";
 
-    const mo = new MovingObject({pos, vel, radius, color});
-    const ast = new Asteroid({pos: pos});
+    // const mo = new MovingObject({pos, vel, radius, color});
+    // const ast = new Asteroid({pos: pos});
 
-    ast.draw(ctx);
+    // ast.draw(ctx);
 })
