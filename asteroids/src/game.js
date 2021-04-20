@@ -1,4 +1,5 @@
-const Asteroid = require("./asteroid")
+const Asteroid = require("./asteroid");
+const Ship = require("./ship");
 
 // How to DRY up following:
 
@@ -11,7 +12,7 @@ function Game() {
     this.asteroids = [];
 
     this.addAsteroids();
-
+    this.ship = new Ship( { pos: this.randomPosition(), game: this } );
 }
 
 Game.prototype.addAsteroids = function() {
@@ -34,14 +35,14 @@ Game.prototype.draw = function (ctx) {
     ctx.fillStyle = Game.COLOR; 
     ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
 
-    this.asteroids.forEach( function(asteroid) {
-        asteroid.draw(ctx);
+    this.allObjects().forEach( function(obj) {
+        obj.draw(ctx);
     })
 }
 
 Game.prototype.moveObjects = function () {
-    this.asteroids.forEach(function (asteroid) {
-        asteroid.move();
+    this.allObjects().forEach( function (obj) {
+        obj.move();
     })
 }
 
@@ -71,10 +72,14 @@ Game.prototype.wrap = function(pos) {
 }
 
 Game.prototype.checkCollisions = function () {
-    for (let i = 0; i < this.asteroids.length; i++) {
-        for (let j = i + 1; j < this.asteroids.length; j++) {
-            if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
-                this.asteroids[i].collideWith(this.asteroids[j]);
+    const allObjects = this.allObjects(); 
+    // console.log(allObjects);
+    // debugger
+
+    for (let i = 0; i < allObjects.length; i++) {
+        for (let j = i + 1; j < allObjects.length; j++) {
+            if (allObjects[i].isCollidedWith(allObjects[j])) {
+                allObjects[i].collideWith(allObjects[j]);
             } 
         }
     }
@@ -85,9 +90,22 @@ Game.prototype.step = function () {
     this.checkCollisions();
 }
 
-Game.prototype.remove(asteroid) {
+Game.prototype.remove = function(asteroid) {
     const idx = this.asteroids.indexOf(asteroid);
     this.asteroids.splice(idx, 1);
 }
+
+Game.prototype.allObjects = function() {
+    return [].concat(this.asteroids, this.ship); 
+}
+
+
+
+
+
+
+
+
+
 
 module.exports = Game; 
