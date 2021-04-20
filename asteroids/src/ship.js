@@ -20,6 +20,13 @@ Ship.prototype.relocate = function() {
 }
 
 
+Ship.prototype.power = function(impulse) {
+  this.vel.x += impulse.x;
+  this.vel.y += impulse.y;
+}
+
+
+
 
 
 module.exports = Ship; 
